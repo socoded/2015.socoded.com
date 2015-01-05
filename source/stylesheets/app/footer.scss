@@ -1,0 +1,26 @@
+footer {
+  width: 100%;
+  text-align: center;
+  margin: 80px 0 0 0;
+  min-height: 50px;
+  line-height: 50px;
+  vertical-align: middle;
+  background: rgba(200, 200, 200, 0.2);
+
+  a {
+    text-decoration: none;
+    color: #aaa;
+    margin-left: 50px;
+    font-family: 'amperzand';
+    font-weight: normal;
+    font-size: 12pt;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &:last-child {
+      margin-right: 50px;
+    }
+  }
+}
