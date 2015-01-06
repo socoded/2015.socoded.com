@@ -5,6 +5,7 @@ body_class: front-page
 <h1>
   <%= image_tag 'logo.png', alt: 'So Coded 2015', class: 'large' %>
   <%= image_tag 'logo-small.png', alt: 'So Coded 2015', class: 'small' %>
+  <%= image_tag 'logo-wide.png', alt: 'So Coded 2015', class: 'wide' %>
 </h1>
 
 <h2>
@@ -40,19 +41,19 @@ body_class: front-page
   NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
   <source src="multimedia/part_2.mp4" type="video/mp4">
 
-    <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
-    <source src="multimedia/part_2.webm" type="video/webm">
+  <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
+  <source src="multimedia/part_2.webm" type="video/webm">
 
-      <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
-      <source src="multimedia/part_2.ogv" type="video/ogg">
+  <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
+  <source src="multimedia/part_2.ogv" type="video/ogg">
 
-        <!-- Provide a Flash fallback for browsers that don't support HTML5 video, e.g. Internet Explorer 6-8.
-        This uses the JW Player Flash Player to play the MP4 file. Set the height and width attributes to the correct values. -->
-        <object type="application/x-shockwave-flash" data="multimedia/player.swf" width="854" height="480">
-          <param name="movie" value="player.swf" />
-          <param name="flashvars" value="controls=false&amp;controlbar=hide&amp;file=multimedia/part_2.mp4" />
-        </object>
-      </video>
+  <!-- Provide a Flash fallback for browsers that don't support HTML5 video, e.g. Internet Explorer 6-8.
+  This uses the JW Player Flash Player to play the MP4 file. Set the height and width attributes to the correct values. -->
+  <object type="application/x-shockwave-flash" data="multimedia/player.swf" width="854" height="480">
+    <param name="movie" value="player.swf" />
+    <param name="flashvars" value="controls=false&amp;controlbar=hide&amp;file=multimedia/part_2.mp4" />
+  </object>
+</video>
 
 <div id="buy-ticket">
   <div id="button">

@@ -12,15 +12,25 @@ body.front-page {
   h1 {
     margin: 70px 0 20px 0;
 
+    img {
+      display: none;
+    }
+
     @media (max-width: 500px) {
-      img.large {
-        display: none;
+      img.small {
+        display: inline;
       }
     }
 
-    @media (min-width: 500px) {
-      img.small {
-        display: none;
+    @media (min-width: 500px) and (min-height: 800px) {
+      img.large {
+        display: inline;
+      }
+    }
+
+    @media (min-width: 500px) and (max-height: 800px) {
+      img.wide {
+        display: inline;
       }
     }
   }
@@ -68,6 +78,11 @@ body.front-page {
     @media (max-width: $videoWidth + 50px) {
       width: $videoWidthMedium;
       height: $videoHeightMedium;
+    }
+
+    @media (max-height: 720px) {
+      width: $videoWidthMedium;
+      height: $videoHeightMedium;  
     }
 
     @media (max-width: $videoWidthMedium + 50px) {
