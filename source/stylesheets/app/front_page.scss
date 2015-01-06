@@ -10,7 +10,7 @@ body.front-page {
   }
 
   h1 {
-    margin: 70px 0 20px 0;
+    margin: 40px 0 10px 0;
 
     img {
       display: none;
@@ -45,7 +45,7 @@ body.front-page {
     font-weight: normal;
     text-shadow: -1px -1px 0px rgba(255, 0, 255, 0.2), 1px 1px 0px rgba(darken($color, 70%), 0.8);
     text-align: center;
-    margin: 0 0 30px 0;
+    margin: 0 0 15px 0;
 
     @media (min-width: 500px) {
       span:first-child:after {
@@ -82,7 +82,7 @@ body.front-page {
 
     @media (max-height: 720px) {
       width: $videoWidthMedium;
-      height: $videoHeightMedium;  
+      height: $videoHeightMedium;
     }
 
     @media (max-width: $videoWidthMedium + 50px) {
