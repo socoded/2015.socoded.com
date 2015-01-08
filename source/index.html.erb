@@ -17,7 +17,7 @@ body_class: front-page
   </span>
 </h2>
 
-<video id="video" poster="multimedia/part_1.jpg" preload="auto">
+<video id="video" poster="<%= image_path 'part_1.jpg' %>" preload="auto">
   <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
   NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
   <source src="multimedia/part_1.mp4" type="video/mp4">
@@ -28,12 +28,6 @@ body_class: front-page
   <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
   <source src="multimedia/part_1.ogv" type="video/ogg">
 
-  <!-- Provide a Flash fallback for browsers that don't support HTML5 video, e.g. Internet Explorer 6-8.
-  This uses the JW Player Flash Player to play the MP4 file. Set the height and width attributes to the correct values. -->
-  <object type="application/x-shockwave-flash" data="multimedia/player.swf" width="854" height="480">
-    <param name="movie" value="player.swf" />
-    <param name="flashvars" value="controls=false&amp;controlbar=hide&amp;image=multimedia/part_1.jpg&amp;file=multimedia/part_1.mp4" />
-  </object>
 </video>
 
 <video id="video2" preload="auto">
@@ -46,13 +40,6 @@ body_class: front-page
 
   <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
   <source src="multimedia/part_2.ogv" type="video/ogg">
-
-  <!-- Provide a Flash fallback for browsers that don't support HTML5 video, e.g. Internet Explorer 6-8.
-  This uses the JW Player Flash Player to play the MP4 file. Set the height and width attributes to the correct values. -->
-  <object type="application/x-shockwave-flash" data="multimedia/player.swf" width="854" height="480">
-    <param name="movie" value="player.swf" />
-    <param name="flashvars" value="controls=false&amp;controlbar=hide&amp;file=multimedia/part_2.mp4" />
-  </object>
 </video>
 
 <div id="buy-ticket">
@@ -81,9 +68,13 @@ body_class: front-page
       return document.getElementById('join-the-gathering')
     }
 
-    window.joinTheGathering = function() {
+    function addBodyClass(className) {
       var body = getBody();
-      body.className = body.className + ' video2';
+      body.className = body.className + ' ' + className;
+    }
+
+    window.joinTheGathering = function() {
+      addBodyClass('video2');
       getVideo2().play();
 
       var button = getButton();
@@ -95,7 +86,7 @@ body_class: front-page
       var video2 = getVideo2();
 
       if (video1 && video2) {
-        video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); }, false);
+        video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); addBodyClass('video1-ended'); }, false);
         video2.addEventListener('ended', function() { window.location.pathname = '/join-the-gathering'; }, false);
       } else {
         setTimeout(attachEndHandlerToVideos, 50);

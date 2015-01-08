@@ -1,11 +1,26 @@
+$height: 50px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin: 0 0 $height; /* bottom = footer height */
+}
+
 footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
   width: 100%;
   text-align: center;
-  margin: 80px 0 0 0;
-  min-height: 50px;
-  line-height: 50px;
+
   vertical-align: middle;
-  background: rgba(200, 200, 200, 0.2);
+  background: #582a40;
+  line-height: $height;
+  height: $height;
+
 
   a {
     text-decoration: none;
@@ -22,5 +37,25 @@ footer {
     &:last-child {
       margin-right: 50px;
     }
+  }
+}
+
+@media (max-width: 825px) {
+  body {
+    margin: 0 0 2 * $height; /* bottom = footer height */
+  }
+
+  footer {
+    height: $height * 2;
+  }
+}
+
+@media (max-width: 405px) {
+  body {
+    margin: 0 0 3 * $height; /* bottom = footer height */
+  }
+
+  footer {
+    height: $height * 3;
   }
 }

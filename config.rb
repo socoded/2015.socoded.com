@@ -29,6 +29,7 @@
 #  :which_fake_page => "Rendering a fake page with a local variable" }
 
 proxy "/join-the-gathering", "/details.html"
+proxy "/imprint", "/imprint.html"
 
 ###
 # Helpers

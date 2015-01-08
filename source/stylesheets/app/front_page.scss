@@ -8,13 +8,28 @@ body.front-page {
   $videoWidthMini: $videoWidthMedium / 2;
   $videoHeightMini: $videoHeightMedium / 2;
 
+  @media (min-width: $videoWidth + 50px) {
+    h1, h2 {
+      display: none;
+    }
+
+    footer {
+      display: none;
+    }
+  }
+
   @mixin video {
-    width: $videoWidth;
-    height: $videoHeight;
-    margin: 0 auto;
-    display: block;
+    position: fixed; left: 0; top: 0;
+    min-width: 100%; min-height: 100%;
+    width: auto; height: auto; z-index: -100;
 
     @media (max-width: $videoWidth + 50px) {
+      margin: 0 auto;
+      display: block;
+      position: relative;
+      min-width: inherit;
+      max-width: inherit;
+
       width: $videoWidthMedium;
       height: $videoHeightMedium;
     }
@@ -30,69 +45,59 @@ body.front-page {
     }
   }
 
+  @mixin hide-video {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
   #video {
     @include video;
   }
 
   #video2 {
-    width: 1px;
-    height: 1px;
-    position: absolute;
-    top: -1px;
-    left: -1px;
+    @include hide-video;
   }
 
   &.video2 {
     #video {
-      display: none;
+      @include hide-video;
     }
 
     #video2 {
       @include video;
-      position: relative;
     }
   }
 
   #buy-ticket {
-    width: 100%;
+    @media (min-width: $videoWidth + 50px) {
+      position: absolute;
+      bottom: 50px;
+      left: 0;
+    }
+
+    @media (max-width: 901px) {
+      margin-bottom: 140px;
+    }
+
+    @media (max-width: 405px) {
+      margin-bottom: 180px;
+    }
 
     #button {
-      width: 320px;
-      margin: 30px auto;
-      text-align: center;
-      background: rgba(255, 10, 226, 0.1);
-      padding: 10px;
-      border-radius: 7px;
-      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4), 0px 1px 0px rgba(255, 255, 255, 0.2) inset;
-
-      @media (max-width: 500px) {
-        font-size: 20pt;
-        width: 280px;
+      @media (min-width: $videoWidth + 50px) {
+        opacity: 0.0;
       }
     }
+  }
 
-    a {
-      text-decoration: none;
-      color: #FFF;
-      font-family: 'amperzand';
-      font-weight: normal;
-      font-size: 24pt;
-
-      -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-      -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-      -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-      transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms;
-
-      &:hover {
-        text-shadow: 0 0 10px rgb(255,255,255) , 0 0 20px rgb(255,255,255) , 0 0 30px rgb(255,255,255) , 0 0 40px rgb(255,17,119) , 0 0 70px rgb(255,17,119) , 0 0 80px rgb(255,17,119) , 0 0 100px rgb(255,17,119) , 0 0 150px rgb(255,17,119) ;
-      }
-
-      &[deactivated] {
-        text-shadow: -1px -1px 0px rgba(0,0,0,0.8), 1px 1px 0px rgba(255,255,255,0.3);
-        color: #333;
-        opacity: 0.4;
-        pointer-events: none;
-      }
+  &.video1-ended #buy-ticket #button {
+    @media (min-width: $videoWidth + 50px) {
+      opacity: 1.0;
     }
+  }
+
+  &.video2 #buy-ticket #button {
+    opacity: 0.0;
   }
 }

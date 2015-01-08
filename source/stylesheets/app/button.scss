@@ -1,0 +1,68 @@
+#buy-ticket {
+  width: 100%;
+
+  #button {
+    width: 320px;
+    margin: 30px auto;
+    text-align: center;
+    background: rgba(lighten($thePink, 5%), 0.8);
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4), 0px 1px 0px rgba(255, 255, 255, 0.2) inset;
+
+    @media (max-width: 640px) {
+      font-size: 20pt;
+      width: 280px;
+    }
+  }
+
+  a {
+    @mixin glow {
+      text-shadow: 0 0 10px rgb(255,255,255) , 0 0 20px rgb(255,255,255) , 0 0 30px rgb(255,255,255) , 0 0 40px rgb(255,17,119) , 0 0 70px rgb(255,17,119) , 0 0 80px rgb(255,17,119) , 0 0 100px rgb(255,17,119) , 0 0 150px rgb(255,17,119) ;
+    }
+
+    @-webkit-keyframes pulsate {
+      0% { text-shadow: none; }
+      75% { @include glow; }
+      100% { text-shadow: none; }
+    }
+
+    @-moz-keyframes pulsate {
+      0% { text-shadow: none; }
+      75% { @include glow; }
+      100% { text-shadow: none; }
+    }
+
+    @-ms-keyframes pulsate {
+      0% { text-shadow: none; }
+      75% { @include glow; }
+      100% { text-shadow: none; }
+    }
+
+    @keyframes pulsate {
+      0% { text-shadow: none; }
+      75% { @include glow; }
+      100% { text-shadow: none; }
+    }
+
+    text-decoration: none;
+    color: #FFF;
+    font-family: 'amperzand';
+    font-weight: normal;
+    font-size: 24pt;
+    transform: translateZ(0);
+
+    @include vendor-prefix(transition, "all 200ms cubic-bezier(0.42, 0, 0.58, 1) 10ms, opacity 2s ease-out");
+
+    @include vendor-prefix(animation, pulsate 2s infinite ease-in-out);
+
+    &:hover {
+      @include glow;
+      @include vendor-prefix(animation, none);
+    }
+
+    &[deactivated] {
+      @include vendor-prefix(animation, none);
+    }
+  }
+}
