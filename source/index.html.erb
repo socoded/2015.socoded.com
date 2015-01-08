@@ -57,10 +57,50 @@ body_class: front-page
 
 <div id="buy-ticket">
   <div id="button">
-    <a href="#" onclick="var body = document.getElementsByTagName('body')[0]; body.className = body.className + ' video2'; document.getElementById('video2').play(); return false;">Join The Gathering</a>
+    <a id="join-the-gathering" href="/join-the-gathering" onclick="joinTheGathering(); return false;" deactivated="deactivated">Join The Gathering</a>
   </div>
 </div>
 
 <script>
-  setTimeout(function() { document.getElementById("video").play(); }, 2000);
+  (function() {
+    setTimeout(function() { document.getElementById("video").play(); }, 500);
+
+    function getBody() {
+      return document.getElementsByTagName('body')[0];
+    }
+
+    function getVideo1() {
+      return document.getElementById('video');
+    }
+
+    function getVideo2() {
+      return document.getElementById('video2');
+    }
+
+    function getButton() {
+      return document.getElementById('join-the-gathering')
+    }
+
+    window.joinTheGathering = function() {
+      var body = getBody();
+      body.className = body.className + ' video2';
+      getVideo2().play();
+
+      var button = getButton();
+      button.setAttribute("deactivated","deactivated");
+    }
+
+    function attachEndHandlerToVideos() {
+      var video1 = getVideo1();
+      var video2 = getVideo2();
+
+      if (video1 && video2) {
+        video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); }, false);
+        video2.addEventListener('ended', function() { window.location.pathname = '/join-the-gathering'; }, false);
+      } else {
+        setTimeout(attachEndHandlerToVideos, 50);
+      }
+    }
+    attachEndHandlerToVideos();
+  })();
 </script>
