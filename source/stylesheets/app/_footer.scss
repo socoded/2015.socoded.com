@@ -21,6 +21,9 @@ footer {
   line-height: $height;
   height: $height;
 
+  // TODO: Delete me
+  display: none !important;
+
 
   a {
     text-decoration: none;

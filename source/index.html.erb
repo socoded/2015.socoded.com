@@ -2,22 +2,13 @@
 body_class: front-page
 ---
 
-<h1>
-  <%= image_tag 'logo.png', alt: 'So Coded 2015', class: 'large' %>
-  <%= image_tag 'logo-small.png', alt: 'So Coded 2015', class: 'small' %>
-  <%= image_tag 'logo-wide.png', alt: 'So Coded 2015', class: 'wide' %>
-</h1>
+<% content_for :header do %>
+<script src='https://js.tito.io/v1' async></script>
+<link rel="stylesheet" type="text/css" href="https://css.tito.io/v1" />
+<% end %>
 
-<h2>
-  <span>
-    23th &amp; 24th July
-  </span>
-  <span>
-    Hamburg, Germany
-  </span>
-</h2>
 
-<video id="video" poster="<%= image_path 'part_1.jpg' %>" preload="auto">
+<video id="video" poster="<%= image_path 'so_coded_000600.png' %>" preload="auto">
   <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
   NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
   <source src="multimedia/part_1.mp4" type="video/mp4">
@@ -44,9 +35,16 @@ body_class: front-page
 
 <div id="buy-ticket">
   <div id="button">
-    <a id="join-the-gathering" href="/join-the-gathering" onclick="joinTheGathering(); return false;" deactivated="deactivated">Join The Gathering</a>
+    <a id="join-the-gathering" href="join-the-gathering" onclick="joinTheGathering(); return false;" deactivated="deactivated">Join The Gathering</a>
   </div>
 </div>
+
+<div id="ticket-form">
+  <h1>The Wizards Of The Web Are Gathering Again</h1>
+  <p>The Order is calling you to Hamburg on July 23rd and 24th. Your ticket includes excellent food, drinks and an awful lot of web socery!</p>
+  <tito-widget event="so-coded/2015" releases="j6bowvjrzyy,r8cfbgof5j4"></tito-widget>
+</div>
+
 
 <script>
   (function() {
@@ -87,7 +85,7 @@ body_class: front-page
 
       if (video1 && video2) {
         video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); addBodyClass('video1-ended'); }, false);
-        video2.addEventListener('ended', function() { window.location.pathname = '/join-the-gathering'; }, false);
+        video2.addEventListener('ended', function() { addBodyClass('video2-ended'); }, false);
       } else {
         setTimeout(attachEndHandlerToVideos, 50);
       }
