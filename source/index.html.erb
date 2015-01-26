@@ -3,8 +3,8 @@ body_class: front-page
 ---
 
 <% content_for :header do %>
-<script src='https://js.tito.io/v1' async></script>
-<link rel="stylesheet" type="text/css" href="https://css.tito.io/v1" />
+  <script src='https://js.tito.io/v1' async></script>
+  <link rel="stylesheet" type="text/css" href="https://css.tito.io/v1" />
 <% end %>
 
 
@@ -31,6 +31,18 @@ body_class: front-page
 
   <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
   <source src="multimedia/part_2.ogv" type="video/ogg">
+</video>
+
+<video id="video3" preload="auto">
+  <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
+  NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
+  <source src="multimedia/confetti.mp4" type="video/mp4">
+
+  <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
+  <source src="multimedia/confetti.webm" type="video/webm">
+
+  <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
+  <source src="multimedia/confetti.ogv" type="video/ogg">
 </video>
 
 <div id="buy-ticket">
@@ -62,6 +74,10 @@ body_class: front-page
       return document.getElementById('video2');
     }
 
+    function getVideo3() {
+      return document.getElementById('video3');
+    }
+
     function getButton() {
       return document.getElementById('join-the-gathering')
     }
@@ -73,15 +89,26 @@ body_class: front-page
 
     window.joinTheGathering = function() {
       addBodyClass('video2');
-      getVideo2().play();
+      var video2 = getVideo2();
+      video2.play();
 
       var button = getButton();
       button.setAttribute("deactivated","deactivated");
+
+      var nearlyEndedCheck = function() {
+        if (video2.currentTime > 2.8) {
+          addBodyClass('nearly-ended');
+        } else {
+          setTimeout(nearlyEndedCheck, 50);
+        }
+      }
+      nearlyEndedCheck();
     }
 
     function attachEndHandlerToVideos() {
       var video1 = getVideo1();
       var video2 = getVideo2();
+      var video3 = getVideo3();
 
       if (video1 && video2) {
         video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); addBodyClass('video1-ended'); }, false);
@@ -91,5 +118,23 @@ body_class: front-page
       }
     }
     attachEndHandlerToVideos();
+
+    var videos = document.querySelectorAll('video');
+
+    for (var i = 0; i < videos.length; i++) {
+      var sources = videos[i].querySelectorAll('source');
+      for (var j = 0; j < sources.length; j++) {
+        sources[j].addEventListener('error', function(ev) {
+          console.log('damn', ev, ev.target);
+        });
+      }
+    }
+
+    setTimeout(function() {
+      Tito.on('registration:finished', function(data) {
+        addBodyClass('video3');
+        video3.play();
+      });
+    }, 8000);
   })();
 </script>
