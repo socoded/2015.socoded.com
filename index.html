@@ -8,21 +8,17 @@
   <meta name="description" content="A superb conference for web developers in Hamburg, Germany">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="stylesheets/vendor-da39a3ee.css" rel="stylesheet" type="text/css" /><link href="stylesheets/app-2f927322.css" rel="stylesheet" type="text/css" />
+  <link href="stylesheets/vendor-da39a3ee.css" rel="stylesheet" type="text/css" /><link href="stylesheets/app-65912a21.css" rel="stylesheet" type="text/css" />
   <script src="javascripts/all-d527e947.js" type="text/javascript"></script>
 
   <!-- Include the HTML5 shiv and shiv print polyfills for Internet Explorer browsers 8 and below -->
   <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
 
-    <script src='https://js.tito.io/v1' async></script>
-  <link rel="stylesheet" type="text/css" href="https://css.tito.io/v1" />
-
+  
 </head>
 
 <body class="front-page">
-  
-
-<video id="video" poster="images/so_coded_000600-c8c002fa.png" preload="auto">
+  <video id="video" poster="images/so_coded_000600-c8c002fa.png" preload="auto">
   <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
   NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
   <source src="multimedia/part_1.mp4" type="video/mp4">
@@ -32,7 +28,6 @@
 
   <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
   <source src="multimedia/part_1.ogv" type="video/ogg">
-
 </video>
 
 <video id="video2" preload="auto">
@@ -67,8 +62,35 @@
 
 <div id="ticket-form">
   <h1>The Wizards Of The Web Are Gathering Again</h1>
-  <p>The Order is calling you to Hamburg on July 23rd and 24th. Your ticket includes excellent food, drinks and an awful lot of web socery!</p>
+  <p class="content">The Order is calling you to Hamburg on July 23rd and 24th.<br/>Your ticket includes excellent food, drinks and an awful lot of web socery!</p>
   <tito-widget event="so-coded/2015" releases="j6bowvjrzyy,r8cfbgof5j4"></tito-widget>
+</div>
+
+<div id="thank-you">
+  <h1>Thank You!</h1>
+
+  <div class="share-buttons content">
+    <ul>
+      <li>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-text="The wizards of the web are gathering again! I just bought a ticket and you should join me" data-related="socodedconf">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </li>
+      <li>
+        <div data-type="xing/share" data-counter="right" data-label="share"></div>
+        <script>
+        ;(function (d, s) {
+          var x = d.createElement(s),
+          s = d.getElementsByTagName(s)[0];
+          x.src = "https://www.xing-share.com/plugins/share.js";
+          s.parentNode.insertBefore(x, s);
+        })(document, "script");
+        </script>
+      </li>
+      <li>
+        <div class="fb-share-button" data-href="http://socoded.com/" data-layout="button"></div>
+      </li>
+    </ul>
+  </div>
 </div>
 
 
@@ -133,35 +155,41 @@
     }
     attachEndHandlerToVideos();
 
-    var videos = document.querySelectorAll('video');
-
-    for (var i = 0; i < videos.length; i++) {
-      var sources = videos[i].querySelectorAll('source');
-      for (var j = 0; j < sources.length; j++) {
-        sources[j].addEventListener('error', function(ev) {
-          console.log('damn', ev, ev.target);
+    var setTitoHandler = function() {
+      if ((typeof Tito) != 'undefined' && (typeof Tito.on) != 'undefined') {
+        Tito.on('registration:complete', function(data) {
+          addBodyClass('video3');
+          video3.play();
         });
+      } else {
+        setTimeout(setTitoHandler, 1000);
       }
-    }
-
-    setTimeout(function() {
-      Tito.on('registration:finished', function(data) {
-        addBodyClass('video3');
-        video3.play();
-      });
-    }, 8000);
+    };
+    setTitoHandler();
   })();
 </script>
+<script src='https://js.tito.io/v1' async defer></script>
+<link rel="stylesheet" type="text/css" href="https://css.tito.io/v1" />
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
   <footer>
-    <div>
-      <a href="/join-the-gathering">Buy Your Ticket</a>
-      <a href="/imprint">Imprint</a>
-      <a href="/code-of-conduct">Code Of Conduct</a>
-      <a href="https://twitter.com/socodedconf" target="_blank">Twitter</a>
-      <a href="mailto:we@socoded.com">Contact Us</a>
-      <a href="http://2013.socoded.com">So Coded 2013</a>
+    <div class="outer">
+      <div class="inner">
+        <a href="/">Home</a>
+        <a href="/imprint">Imprint</a>
+        <a href="/code-of-conduct">Code Of Conduct</a>
+        <a href="https://twitter.com/socodedconf" target="_blank">Twitter</a>
+        <a href="mailto:we@socoded.com">Contact Us</a>
+        <a href="http://2013.socoded.com">So Coded 2013</a>
+      </div>
     </div>
   </footer>
 </body>
