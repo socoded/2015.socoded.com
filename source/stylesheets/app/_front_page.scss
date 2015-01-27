@@ -58,6 +58,31 @@ body.front-page {
     }
   }
 
+  &.mobile {
+    video {
+      display: none;
+    }
+  }
+
+  .instead-of-video1, .instead-of-video2 {
+    @include hide-video;
+  }
+
+  &.mobile {
+    .instead-of-video1 {
+      @include video;
+    }
+
+    &.video2 {
+      .instead-of-video1 {
+        @include hide-video;
+      }
+      .instead-of-video2 {
+        @include video;
+      }
+    }
+  }
+
   #buy-ticket {
     position: absolute;
     left: 0;

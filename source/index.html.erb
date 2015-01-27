@@ -2,6 +2,9 @@
 body_class: front-page
 ---
 
+<%= image_tag 'so_coded_000745.jpg', class: 'instead-of-video1' %>
+<%= image_tag 'part_2.gif', class: 'instead-of-video2' %>
+
 <video id="video" poster="<%= image_path 'so_coded_000600.png' %>" preload="auto">
   <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
   NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
@@ -110,7 +113,6 @@ body_class: front-page
     window.joinTheGathering = function() {
       addBodyClass('video2');
       var video2 = getVideo2();
-      video2.play();
 
       var button = getButton();
       button.setAttribute("deactivated","deactivated");
@@ -122,7 +124,16 @@ body_class: front-page
           setTimeout(nearlyEndedCheck, 50);
         }
       }
-      nearlyEndedCheck();
+
+      if (window.socodedOnMobile) {
+        setTimeout(function() {
+          addBodyClass('video2-ended');
+          addBodyClass('nearly-ended');
+        }, 2800);
+      } else {
+        video2.play();
+        nearlyEndedCheck();
+      }
     }
 
     function attachEndHandlerToVideos() {
@@ -150,6 +161,12 @@ body_class: front-page
       }
     };
     setTitoHandler();
+
+    if (UA.isMobile()) {
+      addBodyClass('mobile');
+      addBodyClass('video1-ended');
+      window.socodedOnMobile = true;
+    }
   })();
 </script>
 <script src='https://js.tito.io/v1' async defer></script>
