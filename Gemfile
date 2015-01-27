@@ -9,3 +9,4 @@ gem "middleman-livereload", "~> 3.1.0"
 
 # Auto prefix CSS attributes (-moz, -webkit, …)
 gem 'middleman-autoprefixer'
+gem 'middleman-gh-pages'
