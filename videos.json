@@ -1,0 +1,50 @@
+//Local ffmpeg to creare the Videos:
+// ffmpeg -framerate 24 -pattern_type glob -i '*.tga' -preset veryslow -qp 15 -c:v libx264 -r 24 out_1_q15.mp4
+// ffmpeg -framerate 30 -pattern_type glob -i '*.tga' -preset veryslow -qp 20 -c:v libx264 -r 30 out_2_q20_30fps.mp4
+
+
+// HTML5 video. Outputs include a high quality mp4, WebM, OGG and a lower quality
+// mp4.
+{
+  "input": "http://videovideovideo.s3.amazonaws.com/out_1_q15.mp4",
+  "outputs": [
+    {
+      "label": "mp4 high",
+      "url": "s3://videovideovideo/part_1.mp4",
+      "h264_profile": "high"
+    },
+    {
+      "url": "s3://videovideovideo/part_1.webm",
+      "label": "webm",
+      "format": "webm"
+    },
+    {
+      "url": "s3://videovideovideo/part_1.ogv",
+      "label": "ogg",
+      "format": "ogg"
+    }
+  ]
+}
+
+
+
+{
+  "input": "http://videovideovideo.s3.amazonaws.com/out_2_q20_30fps.mp4",
+  "outputs": [
+    {
+      "label": "mp4 high",
+      "url": "s3://videovideovideo/part_2.mp4",
+      "h264_profile": "high"
+    },
+    {
+      "url": "s3://videovideovideo/part_2.webm",
+      "label": "webm",
+      "format": "webm"
+    },
+    {
+      "url": "s3://videovideovideo/part_2.ogv",
+      "label": "ogg",
+      "format": "ogg"
+    }
+  ]
+}
