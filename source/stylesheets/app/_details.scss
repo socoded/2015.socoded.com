@@ -1,0 +1,35 @@
+body.details {
+
+  tito-button {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    top: -999px;
+    left: -999px;
+    visibility: hidden;
+  }
+
+  #buy-ticket {
+    padding-top: 10px;
+
+    #button {
+      a {
+        @include vendor-prefix(animation, none);
+        color: #fff;
+      }
+      background: $thePink;
+    }
+  }
+
+  img.star {
+    width: 105px;
+    height: 101px;
+    display: block;
+    margin: 40px auto;
+  }
+
+  #another-ticket-container {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
+}

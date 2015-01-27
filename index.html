@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>So Coded 2015</title>
+
+  <meta name="description" content="A superb conference for web developers in Hamburg, Germany">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="stylesheets/vendor-da39a3ee.css" rel="stylesheet" type="text/css" /><link href="stylesheets/app-2f927322.css" rel="stylesheet" type="text/css" />
+  <script src="javascripts/all-d527e947.js" type="text/javascript"></script>
+
+  <!-- Include the HTML5 shiv and shiv print polyfills for Internet Explorer browsers 8 and below -->
+  <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+
+    <script src='https://js.tito.io/v1' async></script>
+  <link rel="stylesheet" type="text/css" href="https://css.tito.io/v1" />
+
+</head>
+
+<body class="front-page">
+  
+
+<video id="video" poster="images/so_coded_000600-c8c002fa.png" preload="auto">
+  <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
+  NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
+  <source src="multimedia/part_1.mp4" type="video/mp4">
+
+  <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
+  <source src="multimedia/part_1.webm" type="video/webm">
+
+  <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
+  <source src="multimedia/part_1.ogv" type="video/ogg">
+
+</video>
+
+<video id="video2" preload="auto">
+  <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
+  NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
+  <source src="multimedia/part_2.mp4" type="video/mp4">
+
+  <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
+  <source src="multimedia/part_2.webm" type="video/webm">
+
+  <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
+  <source src="multimedia/part_2.ogv" type="video/ogg">
+</video>
+
+<video id="video3" preload="auto">
+  <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
+  NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
+  <source src="multimedia/confetti.mp4" type="video/mp4">
+
+  <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
+  <source src="multimedia/confetti.webm" type="video/webm">
+
+  <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
+  <source src="multimedia/confetti.ogv" type="video/ogg">
+</video>
+
+<div id="buy-ticket">
+  <div id="button">
+    <a id="join-the-gathering" href="join-the-gathering" onclick="joinTheGathering(); return false;" deactivated="deactivated">Join The Gathering</a>
+  </div>
+</div>
+
+<div id="ticket-form">
+  <h1>The Wizards Of The Web Are Gathering Again</h1>
+  <p>The Order is calling you to Hamburg on July 23rd and 24th. Your ticket includes excellent food, drinks and an awful lot of web socery!</p>
+  <tito-widget event="so-coded/2015" releases="j6bowvjrzyy,r8cfbgof5j4"></tito-widget>
+</div>
+
+
+<script>
+  (function() {
+    setTimeout(function() { document.getElementById("video").play(); }, 500);
+
+    function getBody() {
+      return document.getElementsByTagName('body')[0];
+    }
+
+    function getVideo1() {
+      return document.getElementById('video');
+    }
+
+    function getVideo2() {
+      return document.getElementById('video2');
+    }
+
+    function getVideo3() {
+      return document.getElementById('video3');
+    }
+
+    function getButton() {
+      return document.getElementById('join-the-gathering')
+    }
+
+    function addBodyClass(className) {
+      var body = getBody();
+      body.className = body.className + ' ' + className;
+    }
+
+    window.joinTheGathering = function() {
+      addBodyClass('video2');
+      var video2 = getVideo2();
+      video2.play();
+
+      var button = getButton();
+      button.setAttribute("deactivated","deactivated");
+
+      var nearlyEndedCheck = function() {
+        if (video2.currentTime > 2.8) {
+          addBodyClass('nearly-ended');
+        } else {
+          setTimeout(nearlyEndedCheck, 50);
+        }
+      }
+      nearlyEndedCheck();
+    }
+
+    function attachEndHandlerToVideos() {
+      var video1 = getVideo1();
+      var video2 = getVideo2();
+      var video3 = getVideo3();
+
+      if (video1 && video2) {
+        video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); addBodyClass('video1-ended'); }, false);
+        video2.addEventListener('ended', function() { addBodyClass('video2-ended'); }, false);
+      } else {
+        setTimeout(attachEndHandlerToVideos, 50);
+      }
+    }
+    attachEndHandlerToVideos();
+
+    var videos = document.querySelectorAll('video');
+
+    for (var i = 0; i < videos.length; i++) {
+      var sources = videos[i].querySelectorAll('source');
+      for (var j = 0; j < sources.length; j++) {
+        sources[j].addEventListener('error', function(ev) {
+          console.log('damn', ev, ev.target);
+        });
+      }
+    }
+
+    setTimeout(function() {
+      Tito.on('registration:finished', function(data) {
+        addBodyClass('video3');
+        video3.play();
+      });
+    }, 8000);
+  })();
+</script>
+
+
+  <footer>
+    <div>
+      <a href="/join-the-gathering">Buy Your Ticket</a>
+      <a href="/imprint">Imprint</a>
+      <a href="/code-of-conduct">Code Of Conduct</a>
+      <a href="https://twitter.com/socodedconf" target="_blank">Twitter</a>
+      <a href="mailto:we@socoded.com">Contact Us</a>
+      <a href="http://2013.socoded.com">So Coded 2013</a>
+    </div>
+  </footer>
+</body>
+
+</html>
