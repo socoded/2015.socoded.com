@@ -48,3 +48,25 @@
     }
   ]
 }
+
+
+{
+  "input": "http://videovideovideo.s3.amazonaws.com/confetti_in.webm",
+  "outputs": [
+    {
+      "label": "mp4 high",
+      "url": "s3://videovideovideo/confetti.mp4",
+      "h264_profile": "high"
+    },
+    {
+      "url": "s3://videovideovideo/confetti.webm",
+      "label": "webm",
+      "format": "webm"
+    },
+    {
+      "url": "s3://videovideovideo/confetti.ogv",
+      "label": "ogg",
+      "format": "ogg"
+    }
+  ]
+}
