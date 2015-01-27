@@ -35,5 +35,14 @@ body.page {
       font-weight: 100;
       font-size: 20pt;
     }
+
+    p {
+      font-family: sans-serif;
+      font-weight: 200;
+
+      a {
+        color: #fff;
+      }
+    }
   }
 }
