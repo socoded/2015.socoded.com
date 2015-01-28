@@ -30,6 +30,7 @@
 
 proxy "/imprint", "/imprint.html"
 proxy "/code-of-conduct", "/code-of-conduct.html"
+proxy "/recording-policy", "/recording-policy.html"
 
 ###
 # Helpers
