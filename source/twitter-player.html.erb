@@ -1,0 +1,31 @@
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      height: 100%;
+      background: #5d0f3e;
+    }
+
+    video#bgvid {
+      position: fixed; left: 0; top: 0;
+      width: 100%; height: 100%; z-index: -100;
+      background: url(<%= image_path('so_coded_000600.png') %>) no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <video id="bgvid" poster="<%= image_path 'so_coded_000600.png' %>" preload="auto" autoplay>
+    <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
+    NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
+    <source src="multimedia/part_1.mp4" type="video/mp4">
+
+    <!-- WebM source for FireFox and Opera (also Chrome and Internet Explorer 9+) -->
+    <source src="multimedia/part_1.webm" type="video/webm">
+
+    <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
+    <source src="multimedia/part_1.ogv" type="video/ogg">
+  </video>
+</body>
+</html>
