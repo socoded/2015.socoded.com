@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>So Coded 2015</title>
+
+  <meta name="description" content="A superb conference for web developers in Hamburg, Germany">
+  <meta property="og:title" content="A superb conference for web developers in Hamburg, Germany" />
+  <meta property="og:site_name" content="So Coded 2015"/>
+  <meta property="og:url" content="http://2015.socoded.com" />
+  <meta property="og:description" content="The Wizards Of The Web Are Gathering Again! The Order is calling you to Hamburg on July 23rd and 24th.<br/>Your ticket includes excellent food, drinks and an awful lot of web socery!"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="stylesheets/vendor-da39a3ee.css" rel="stylesheet" type="text/css" /><link href="stylesheets/app-cdcab160.css" rel="stylesheet" type="text/css" />
+  <script src="javascripts/all-b1f0153f.js" type="text/javascript"></script>
+
+  <!-- Include the HTML5 shiv and shiv print polyfills for Internet Explorer browsers 8 and below -->
+  <!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+
+  
+</head>
+
+<body class="imprint code-of-conduct page">
+  <h2>
+  Recording Policy
+</h2>
+
+<div id="content">
+  <h3>Photography / Recording by Conference Staff</h3>
+  <h4>Audio / Video Recording of Talks</h4>
+
+  <p>
+    When you agree to speak at So Coded, you consent for your talk to be recorded in audio and possibly video format.
+  </p>
+
+  <p>
+    We reserve the right to publicly distribute any recording.
+  </p>
+
+  <p>
+    You may not opt out of having your talk recorded. As conference organizers, we cannot be all places at once and it is important for us to be able to review all material presented at the conference.
+  </p>
+
+  <p>
+    However, you may opt out of having your talk distributed publicly by contacting us at we@socoded.com
+  </p>
+
+  <h4>
+    Photography
+  </h4>
+
+  <p>
+    When you register for So Coded, you consent to be photographed by official conference staff, to have those photographs published and possibly used in various promotional material.
+  </p>
+
+  <p>
+    If you do not wish images of yourself to be published, you may opt out by contacting we@socoded.com. We also ask you to obey our lanyard recommendations outlined below to make our life identifying people who do not want to be published easier.
+  </p>
+
+  <p>
+    Conference staff must abide by the Code of Conduct as well as the rules outlined below.
+  </p>
+
+  <hr/>
+  <h3>Photography / Recording by Attendees</h3>
+  <h4>Audio / Video Recording of Talks</h4>
+
+  <p>
+    Only official conference A/V staff are permitted to record talks. No other recording devices should be used during your talk or anyone else’s. If you would like to make your own recording, please contact us requesting an exemption to this rule.
+  </p>
+
+  <h4>Photography</h4>
+
+  <p>
+    We encourage attendees to take and share their own photographs, as long as the rules below are followed.
+  </p>
+
+  <h4>Photography/Recording Rules</h4>
+
+  <p>Any photography/recording that is legally allowed in public spaces is allowed at So Coded.</p>
+
+  <p>
+    Anyone photographing or recording must abide by participants' willingness to be photographed or recorded by the color of their lanyard:<br/>
+  </p>
+  <hr/>
+  <p>
+    <span style="color: red;background: white;padding: 3px;font-weight: bold;">Red</span>: Do not record or photograph.<br/>
+    <br/>
+    <span style="font-weight:bold;">Any other color</span>: Okay to record or photograph.
+  </p>
+  <hr/>
+
+  <p>
+    Photography/recording should be treated like other potentially harassing interpersonal interaction. That is, when one person in the interaction says “stop” or “leave me alone” (etc), the interaction must end. In this case, attendees should not attempt to photograph that individual again.
+  </p>
+
+  <p>
+    Photography/recording shouldn’t be done in such a way as to hide from the subject that it’s happening. For this reason, participants are not permitted to wear Google Glass during the course of the conference.
+  </p>
+
+  <p>
+    The subject may inspect the photo/recording at any time and, if requested, the photo/footage/etc must be deleted immediately.
+  </p>
+
+  <p>
+    Those who are taking photographs and/or recording must also follow our general <a href="code-of-conduct.html">Code of Conduct</a>.
+  </p>
+
+  <h3>How to Report Violations or Issues</h3>
+
+  <p>
+    Please report an violations or issues with recording or photography directly to conference co-chairs Julia Starsy, Ole Michaelis or Thorben Schröder.
+  </p>
+
+  <hr/>
+  <p>
+    A big thank you to <a href="http://opensourcebridge.org/about/recording-policy/" target="_blank">Open Source Bridge</a> for letting us use their Recording Policy as a template.
+  </p>
+</div>
+
+
+  <footer>
+    <div class="outer">
+      <div class="inner">
+        <a href="/">Home</a>
+        <a href="imprint.html">Imprint</a>
+        <a href="code-of-conduct.html">Code Of Conduct</a>
+        <a href="recording-policy.html">Recording Policy</a>
+        <a target="_blank" href="https://twitter.com/socodedconf">Twitter</a>
+        <a href="mailto:we@socoded.com">Contact Us</a>
+        <a href="http://2013.socoded.com">So Coded 2013</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-39021317-2', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+</body>
+
+</html>
