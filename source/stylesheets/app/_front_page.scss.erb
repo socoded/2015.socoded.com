@@ -108,6 +108,8 @@ body.front-page {
     }
 
     #button {
+      @include vendor-prefix(transition, "opacity 2s ease-in-out");
+
       @media (min-width: $videoWidth + 50px) {
         opacity: 0.0;
       }
