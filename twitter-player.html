@@ -9,14 +9,168 @@
 
     video#bgvid {
       position: fixed; left: 0; top: 0;
-      width: 100%; height: 100%; z-index: -100;
+      width: 100%; height: 100%;
       background: url(images/so_coded_000600-c8c002fa.png) no-repeat center center fixed;
       background-size: cover;
+    }
+
+    #play-button-container {
+      width: 160px;
+      height: 160px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -80px;
+      margin-left: -80px;
+    }
+
+    #play-button {
+      position: relative;
+      display: inline-block;
+      padding: 12px;
+      background: linear-gradient(#ffffff, #cccccc), #c9c5c9;
+      border-radius: 200px;
+      border: 0 solid #d0d0d0;
+      width: 160px;
+      height: 160px;
+      margin-right: 40px;
+      box-shadow: 0 9.6px 11.2px rgba(0, 0, 0, 0.4);
+    }
+
+    #play-button:hover {
+      background: linear-gradient(#f5f5f5, #b9b9b9), #c9c5c9;
+      cursor: pointer;
+    }
+
+    #play-button:hover:before {
+      border-left-color: rgba(36, 36, 36, 0.8);
+    }
+
+    #play-button:active {
+      top: 8px;
+      box-shadow: 0 3.2px 4.8px rgba(0, 0, 0, 0.4);
+    }
+
+    #play-button:before {
+      z-index: 2;
+      top: 35.2px;
+      left: 57.7px;
+      width: 0;
+      height: 0;
+      border: 48px solid transparent;
+      border-left-color: rgba(100, 100, 100, 0.8);
+      border-left-width: 72px;
+      position: absolute;
+      content: " ";
+    }
+
+    #play-button:after {
+      position: absolute;
+      content: " ";
+    }
+
+    #pause-button {
+      position: relative;
+      display: inline-block;
+      padding: 6px;
+      background: linear-gradient(#ffffff, #cccccc), #c9c5c9;
+      border-radius: 100px;
+      border: 0 solid #d0d0d0;
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      box-shadow: 0 4.8px 5.6px rgba(0, 0, 0, 0.4);
+    }
+
+    #pause-button:before {
+      height: 37.6px;
+      width: 15.2px;
+      left: 23.2px;
+      top: 22.4px;
+      display: block;
+      background-color: rgba(100, 100, 100, 0.8);
+      position: absolute;
+      content: " ";
+    }
+
+    #pause-button:after {
+      left: 43.2px;
+      height: 37.6px;
+      width: 15.2px;
+      top: 22.4px;
+      display: block;
+      background-color: rgba(100, 100, 100, 0.8);
+      position: absolute;
+      content: " ";
+    }
+
+    #pause-button:hover {
+      background: linear-gradient(#f5f5f5, #b9b9b9), #c9c5c9;
+      cursor: pointer;
+    }
+
+    #pause-button:hover:before, #pause-button:hover:after {
+      background-color: rgba(36, 36, 36, 0.8);
+    }
+
+    #stop-button {
+      position: relative;
+      display: inline-block;
+      padding: 6px;
+      background: linear-gradient(#ffffff, #cccccc), #c9c5c9;
+      border-radius: 100px;
+      border: 0 solid #d0d0d0;
+      width: 80px;
+      height: 80px;
+      margin-right: 20px;
+      box-shadow: 0 4.8px 5.6px rgba(0, 0, 0, 0.4);
+    }
+
+    #stop-button:before {
+      top: 22.4px;
+      left: 22.4px;
+      width: 37.6px;
+      height: 37.6px;
+      background: rgba(100, 100, 100, 0.8);
+      position: absolute;
+      content: " ";
+    }
+
+    #stop-button:after {
+      position: absolute;
+      content: " ";
+    }
+
+    #stop-button:hover {
+      background: linear-gradient(#f5f5f5, #b9b9b9), #c9c5c9;
+      cursor: pointer;
+    }
+
+    #stop-button:hover:before {
+      background: rgba(36, 36, 36, 0.8);
+    }
+
+    #stop-button:active {
+      top: 4px;
+      box-shadow: 0 1.6px 2.4px rgba(0, 0, 0, 0.4);
+    }
+
+    #other-buttons-container {
+      display: none;
+      position:absolute;
+      top:10px;
+      width: 100%;
+      height: 90px;
+      text-align:center;
+    }
+
+    video::-webkit-media-controls {
+      display:none !important;
     }
   </style>
 </head>
 <body>
-  <video id="bgvid" poster="images/so_coded_000600-c8c002fa.png" preload="auto" autoplay>
+  <video id="bgvid" poster="images/so_coded_000600-c8c002fa.png" preload="auto">
     <!-- MP4 source for Chrome, Safari, Internet Explorer 9+, iOS and Android
     NOTE: remove the type attribute from the MP4 <source> element to ensure older Android support -->
     <source src="multimedia/part_1.mp4" type="video/mp4">
@@ -27,5 +181,14 @@
     <!-- Include an Ogg video file to support Firefox 3.5 and 3.6 -->
     <source src="multimedia/part_1.ogv" type="video/ogg">
   </video>
+
+  <div id="play-button-container">
+    <button id="play-button" onclick="document.getElementById('play-button-container').style.display = 'none'; document.getElementById('other-buttons-container').style.display = 'block'; document.getElementById('bgvid').play();return false;"></button>
+  </div>
+
+  <div id="other-buttons-container">
+    <button id="pause-button" onclick="document.getElementById('other-buttons-container').style.display = 'none'; document.getElementById('play-button-container').style.display = 'block'; document.getElementById('bgvid').pause();return false;"></button>
+    <button id="stop-button" onclick="document.getElementById('other-buttons-container').style.display = 'none'; document.getElementById('play-button-container').style.display = 'block'; document.getElementById('bgvid').pause(); document.getElementById('bgvid').currentTime = 0;return false;"></button>
+  </div>
 </body>
 </html>
