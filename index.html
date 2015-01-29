@@ -79,7 +79,7 @@
 <div id="ticket-form">
   <h1>The Wizards Of The Web Are Gathering Again</h1>
   <p class="content">The Order is calling you to Hamburg on July 23rd and 24th.<br/>Your ticket includes excellent food, drinks and an awful lot of web sorcery!</p>
-  <tito-widget event="so-coded/2015"></tito-widget>
+  <tito-widget id="tito-widget" event="so-coded/2015"></tito-widget>
 </div>
 
 <div id="thank-you">
@@ -181,6 +181,11 @@
 
     var setTitoHandler = function() {
       if ((typeof Tito) != 'undefined' && (typeof Tito.on) != 'undefined') {
+        var hashArguments = window.location.hash.split('=');
+        if (hashArguments && hashArguments.length == 2 && hashArguments[0] == '#ticket' && hashArguments[1] && hashArguments[1].match && hashArguments[1].match(/^[a-z0-9]+$/)) {
+          document.getElementById('tito-widget').setAttribute("releases", "" + hashArguments[1]);
+        }
+
         Tito.on('registration:complete', function(data) {
           addBodyClass('video3');
           video3.play();
