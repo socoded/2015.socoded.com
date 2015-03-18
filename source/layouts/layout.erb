@@ -8,8 +8,16 @@
   <meta name="description" content="A superb conference for web developers in Hamburg, Germany">
   <meta property="og:title" content="A superb conference for web developers in Hamburg, Germany" />
   <meta property="og:site_name" content="So Coded 2015"/>
-  <meta property="og:url" content="http://socoded.com" />
-  <meta property="og:description" content="The Wizards Of The Web Are Gathering Again! The Order is calling you to Hamburg on July 23rd and 24th.<br/>Your ticket includes excellent food, drinks and an awful lot of web socery!"/>
+  <meta property="og:url" content="http://2015.socoded.com" />
+  <meta property="og:image" content="<%= File.join('https://socoded.github.io/2015.socoded.com/', image_path('teaser.jpg')) %>" />
+  <meta property="og:description" content="The Wizards Of The Web Are Gathering Again! The Order is calling you to Hamburg on July 23rd and 24th."/>
+
+  <meta name="twitter:card" content="player" />
+  <meta name="twitter:site" content="@socodedconf" />
+  <meta name="twitter:player" content="https://socoded.github.io/2015.socoded.com/twitter-player.html" />
+  <meta name="twitter:player:stream" content="https://socoded.github.io/2015.socoded.com/multimedia/part_1.mp4" />
+  <meta name="twitter:player:height" content="1080" />
+  <meta name="twitter:player:width" content="1920" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -31,6 +39,7 @@
         <%= link_to 'Home', '/' %>
         <%= link_to 'Imprint', '/imprint.html' %>
         <%= link_to 'Code Of Conduct', '/code-of-conduct.html' %>
+        <%= link_to 'Recording Policy', '/recording-policy.html' %>
         <%= link_to 'Twitter', 'https://twitter.com/socodedconf', target: '_blank' %>
         <%= link_to 'Contact Us', 'mailto:we@socoded.com' %>
         <%= link_to 'So Coded 2013', 'http://2013.socoded.com' %>

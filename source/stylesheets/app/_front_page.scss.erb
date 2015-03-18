@@ -56,6 +56,11 @@ body.front-page {
     video {
       display: none;
     }
+
+    body:after{
+      display:none;
+      content: url(<%= image_path('part_2.gif') %>);
+    }
   }
 
   .instead-of-video1 {
@@ -108,6 +113,8 @@ body.front-page {
     }
 
     #button {
+      @include vendor-prefix(transition, "opacity 2s ease-in-out");
+
       @media (min-width: $videoWidth + 50px) {
         opacity: 0.0;
       }
