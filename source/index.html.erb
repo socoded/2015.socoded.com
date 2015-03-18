@@ -43,7 +43,7 @@ body_class: front-page
 
 <div id="buy-ticket">
   <div id="button">
-    <a id="join-the-gathering" href="join-the-gathering" onclick="joinTheGathering(); return false;" deactivated="deactivated">Join The Gathering</a>
+    <a id="join-the-gathering" href="http://2015-info.socoded.com/" onclick="joinTheGathering(); return false;" deactivated="deactivated">Join The Gathering</a>
   </div>
 </div>
 
@@ -143,7 +143,7 @@ body_class: front-page
 
       if (video1 && video2) {
         video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); addBodyClass('video1-ended'); }, false);
-        video2.addEventListener('ended', function() { addBodyClass('video2-ended'); }, false);
+        video2.addEventListener('ended', function() { window.location = 'http://2015-info.socoded.com'; }, false);
       } else {
         setTimeout(attachEndHandlerToVideos, 50);
       }
