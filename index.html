@@ -158,12 +158,12 @@
         }
       }
 
-      video2.play();
       if (window.socodedOnMobile) {
         setTimeout(function() {
           window.location = targetUrl();
         }, 3200);
       } else {
+        video2.play();
         nearlyEndedCheck();
       }
     }
