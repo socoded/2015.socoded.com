@@ -139,7 +139,11 @@
       body.className = body.className + ' ' + className;
     }
 
-    window.joinTheGathering = function() {
+    function targetUrl() {
+      return document.querySelector('#button a').href;
+    }
+
+    window.joinTheGathering = function(e) {
       addBodyClass('video2');
       var video2 = getVideo2();
 
@@ -154,13 +158,12 @@
         }
       }
 
+      video2.play();
       if (window.socodedOnMobile) {
         setTimeout(function() {
-          addBodyClass('video2-ended');
-          addBodyClass('nearly-ended');
+          window.location = targetUrl();
         }, 3200);
       } else {
-        video2.play();
         nearlyEndedCheck();
       }
     }
@@ -172,7 +175,7 @@
 
       if (video1 && video2) {
         video1.addEventListener('ended', function() { getButton().removeAttribute('deactivated'); addBodyClass('video1-ended'); }, false);
-        video2.addEventListener('ended', function() { window.location = 'http://2015-info.socoded.com'; }, false);
+        video2.addEventListener('ended', function() { window.location = targetUrl(); }, false);
       } else {
         setTimeout(attachEndHandlerToVideos, 50);
       }
@@ -201,6 +204,7 @@
       addBodyClass('video1-ended');
       window.socodedOnMobile = true;
     }
+    window.socodedOnMobile = true;
   })();
 </script>
 <script src='https://js.tito.io/v1' async defer></script>
