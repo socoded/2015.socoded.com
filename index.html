@@ -79,7 +79,6 @@
 <div id="ticket-form">
   <h1>The Wizards Of The Web Are Gathering Again</h1>
   <p class="content">The Order is calling you to Hamburg on July 23rd and 24th.<br/>Your ticket includes excellent food, drinks and an awful lot of web sorcery!</p>
-  <tito-widget id="tito-widget" event="so-coded/2015"></tito-widget>
 </div>
 
 <div id="thank-you">
@@ -182,33 +181,14 @@
     }
     attachEndHandlerToVideos();
 
-    var setTitoHandler = function() {
-      if ((typeof Tito) != 'undefined' && (typeof Tito.on) != 'undefined') {
-        var hashArguments = window.location.hash.split('=');
-        if (hashArguments && hashArguments.length == 2 && hashArguments[0] == '#ticket' && hashArguments[1] && hashArguments[1].match && hashArguments[1].match(/^[a-z0-9]+$/)) {
-          document.getElementById('tito-widget').setAttribute("releases", "" + hashArguments[1]);
-        }
-
-        Tito.on('registration:complete', function(data) {
-          addBodyClass('video3');
-          video3.play();
-        });
-      } else {
-        setTimeout(setTitoHandler, 1000);
-      }
-    };
-    setTitoHandler();
-
     if (UA.isMobile()) {
       addBodyClass('mobile');
       addBodyClass('video1-ended');
       window.socodedOnMobile = true;
     }
-    window.socodedOnMobile = true;
+    // window.socodedOnMobile = true;
   })();
 </script>
-<script src='https://js.tito.io/v1' async defer></script>
-<link rel="stylesheet" type="text/css" href="https://css.tito.io/v1" />
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
